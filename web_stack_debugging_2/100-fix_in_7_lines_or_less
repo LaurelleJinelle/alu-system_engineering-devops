@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+pkill -f apache2
+chmod 644 /etc/nginx/nginx.conf
+sed -i 's/listen 80 /listen 8080 /' /etc/nginx/sites-available/default
+sed -i '/^user /c\user nginx;' /etc/nginx/nginx.conf
+systemctl restart nginx
+
